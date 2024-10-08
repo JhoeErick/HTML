@@ -1,42 +1,32 @@
-//faça 4 iputs que mostre a soma e a media dos números digitados
+//crie um programa que receba 4 numeros o nome do aluno 4 notas e calcule a media e mostre em um h2
+const frm = document.querySelector("form");
+const resp = document.querySelector("h3");
+const media = document.querySelector("h2")
 
-const num1 = document.querySelector('#num1');
-const num2 = document.querySelector('#num2');
-const num3 = document.querySelector('#num3');
-const num4 = document.querySelector('#num4');
-const resp = document.querySelector('#resultado');
-function calcular() {
+frm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const nome = frm.inNome.value;
+  resp.innerText = `Olá ${nome} seja bem vindo!`
 
-    const num1 = parseFloat(document.getElementById('num1').value);
-    console.log(num1);
-    const num2 = parseFloat(document.getElementById('num2').value);
-    console.log(num2);
-    const num3 = parseFloat(document.getElementById('num3').value);
-    console.log(num3);
-    const num4 = parseFloat(document.getElementById('num4').value);
-    console.log(num4);
+    const n1 = parseFloat(frm.n1.value);
+    const n2 = parseFloat(frm.n2.value);
+    const n3 = parseFloat(frm.n3.value);
+    const n4 = parseFloat(frm.n4.value);
 
-    if (isNaN(num1) || isNaN(num2) || isNaN(num3) || isNaN(num4)) {
-        alert('Por favor, insira apenas números!');
-        return;
-    }  
-    
-    const soma = num1 + num2 + num3 + num4;
-    const media = soma / 4;
+    const mediaAluno = ((n1 + n2 + n3 + n4) / 4);
+   
+    media.innerText = `A média do aluno é ${mediaAluno.toFixed(2)}`;
 
-    resp.innerText =`a soma é ${soma} e a média é ${media}`
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if(mediaAluno>=7.0){
+        resp.innerText="Aprovado";
+        media.style.color="blue";
+    }
+    if(mediaAluno<=6.9 && mediaAluno>=4){
+        resp.innerText="Recuperação";
+        media.style.color="green";
+    }
+    if(mediaAluno<3.9){
+            resp.innerText="Reprovado";
+            media.style.color="red";
+        }
+});
