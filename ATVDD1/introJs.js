@@ -18,15 +18,15 @@ frm.addEventListener("submit", (e) => {
     media.innerText = `A média do aluno é ${mediaAluno.toFixed(2)}`;
 
     if(mediaAluno>=7.0){
-        resp.innerText="Aprovado";
+        resp.innerText="Colando até eu - Aprovado";
         media.style.color="blue";
     }
     if(mediaAluno<=6.9 && mediaAluno>=4){
-        resp.innerText="Recuperação";
+        resp.innerText="Ta na Bosta - Recuperação";
         media.style.color="green";
     }
     if(mediaAluno<3.9){
-            resp.innerText="Reprovado";
-            media.style.color="red";
+        resp.innerText="Se Fodeu - Reprovado";
+        media.style.color="red";
         }
 });
