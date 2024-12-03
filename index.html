@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CEP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Container principal -->
+    <div class="container">
+        <h1>Consulta CEP</h1>
+        
+        <!-- Abas de navegação -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="alternarAba('busca-cep')">Buscar por CEP</button>
+            <button class="tab-button" onclick="alternarAba('busca-logradouro')">Buscar por Rua</button>
+        </div>
+
+        <!-- Área de busca por CEP -->
+        <div id="busca-cep" class="tab-content">
+            <div class="container-busca">
+                <input type="text" id="campoCep" maxlength="8" placeholder="Digite o CEP (somente números)">
+                <button onclick="buscarCep()">Buscar CEP</button>
+            </div>
+        </div>
+
+        <!-- Área de busca por logradouro -->
+        <div id="busca-logradouro" class="tab-content oculto">
+            <div class="container-busca-logradouro">
+                <input type="text" id="campoUf" maxlength="2" placeholder="UF" class="input-uf">
+                <input type="text" id="campoCidade" placeholder="Cidade" class="input-cidade">
+                <input type="text" id="campoLogradouro" placeholder="Nome da rua" class="input-logradouro">
+                <button onclick="buscarPorLogradouro()">Buscar Endereços</button>
+            </div>
+        </div>
+
+        <!-- Indicadores de estado -->
+        <div id="carregando" class="carregando oculto">Buscando...</div>
+        <div id="erro" class="erro oculto"></div>
+
+        <!-- Lista de endereços -->
+        <div id="listaEnderecos" class="lista-enderecos oculto"></div>
+
+        <!-- Área de resultado -->
+        <div id="resultado" class="resultado oculto">
+            <h2>Endereço Encontrado</h2>
+            <div class="info-endereco">
+                <p><strong>CEP:</strong> <span id="resultado-cep"></span></p>
+                <p><strong>Logradouro:</strong> <span id="resultado-logradouro"></span></p>
+                <p><strong>Complemento:</strong> <span id="resultado-complemento"></span></p>
+                <p><strong>Bairro:</strong> <span id="resultado-bairro"></span></p>
+                <p><strong>Cidade:</strong> <span id="resultado-cidade"></span></p>
+                <p><strong>Estado:</strong> <span id="resultado-estado"></span></p>
+                <p><strong>Região:</strong> <span id="resultado-regiao"></span></p>
+                <p><strong>DDD:</strong> <span id="resultado-ddd"></span></p>
+                <p><strong>IBGE:</strong> <span id="resultado-ibge"></span></p>
+                <p><strong>SIAFI:</strong> <span id="resultado-siafi"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts da aplicação -->
+    <script src="js/utilidades.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/interface.js"></script>
+    <script src="js/principal.js"></script>
+</body>
+</html>

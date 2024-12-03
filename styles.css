@@ -1,0 +1,314 @@
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Estilo do corpo da página */
+body {
+    background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    color: #1f2937;
+}
+
+/* Container principal */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 90%;
+    max-width: 800px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo das abas */
+.tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 1rem;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #6b7280;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    background: #f3f4f6;
+    color: #4f46e5;
+}
+
+.tab-button.active {
+    background: #4f46e5;
+    color: white;
+}
+
+/* Container de busca por logradouro */
+.container-busca-logradouro {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-uf {
+    width: 80px;
+    text-transform: uppercase;
+}
+
+.input-cidade {
+    grid-column: span 2;
+}
+
+.input-logradouro {
+    grid-column: span 2;
+}
+
+/* Lista de endereços */
+.lista-enderecos {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.endereco-card {
+    background: #f8fafc;
+    padding: 1.25rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.endereco-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-color: #6366f1;
+}
+
+.endereco-card p {
+    margin-bottom: 0.5rem;
+}
+
+.endereco-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Mantém os estilos existentes... */
+/* Estilo do título */
+h1 {
+    color: #1e40af;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Container de busca */
+.container-busca {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Estilo do campo de input */
+input {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+input::placeholder {
+    color: #9ca3af;
+}
+
+/* Estilo do botão */
+button {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Estado de carregamento */
+.carregando {
+    text-align: center;
+    color: #6366f1;
+    margin: 1.5rem 0;
+    font-weight: 500;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Mensagem de erro */
+.erro {
+    background: #fee2e2;
+    color: #dc2626;
+    padding: 1.25rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    border-left: 4px solid #dc2626;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+}
+
+/* Área de resultado */
+.resultado {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e5e7eb;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.resultado h2 {
+    color: #1e40af;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Grid de informações do endereço */
+.info-endereco {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+}
+
+.info-endereco p {
+    padding: 1.25rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    color: #374151;
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.info-endereco p:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-color: #6366f1;
+}
+
+.info-endereco strong {
+    color: #1e40af;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Classe utilitária para ocultar elementos */
+.oculto {
+    display: none;
+}
+
+/* Animações */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    .container-busca,
+    .container-busca-logradouro {
+        flex-direction: column;
+        grid-template-columns: 1fr;
+    }
+
+    .input-uf,
+    .input-cidade,
+    .input-logradouro {
+        grid-column: 1;
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .info-endereco {
+        grid-template-columns: 1fr;
+    }
+}
